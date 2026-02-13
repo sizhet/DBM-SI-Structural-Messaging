@@ -1,7 +1,7 @@
 #DBM-SI Structural Messaging
 ##Payload-Structure Communication Model for Structural Intelligence
 
-Version: v0.1
+Version: v0.1.1
 Project: DBM-SI Structural Messaging
 Status: Conceptual Specification
 Scope: Structural Intelligence Runtime Communication Model
@@ -14,11 +14,17 @@ Unlike conventional messaging systems that transport data alone, Structural Mess
 
 This model serves as the bridge between execution payload flow and structural knowledge formation in Structural Intelligence systems.
 
-Short Definition
+The architectural motivation of Structural Messaging — including constrained payload signaling scenarios such as bridge signaling, trigger-based observation, and the quantum-entanglement analogy — is explained in:
+
+###DBM-COT ITEM #266 — Structural Messaging Architecture in DBM-SI
+
+This specification focuses on the communication model itself.
+
+###Short Definition
 
 Structural Messaging is the payload-structure communication model of DBM-SI runtime systems, enabling payload transmission together with structural evidence, execution auditability, and snapshot-level reproducibility.
 
-One-Line Definition
+###One-Line Definition
 
 Structural Messaging enables payload transmission with structural evidence in Structural Intelligence runtime systems.
 
@@ -26,68 +32,61 @@ Structural Messaging enables payload transmission with structural evidence in St
 
 Structural Messaging occupies the communication layer between runtime execution and structural knowledge formation.
 
-Structural Intelligence Stack
-
-Structural Algorithms
-        ↓
-EvidenceChain
-        ↓
-Structural Messaging
-        ↓
-Snapshot / Knowledge State
+    Structural Intelligence Stack
+    
+    Structural Algorithms
+            ↓
+    EvidenceChain
+            ↓
+    Structural Messaging
+            ↓
+    Snapshot / Knowledge State
 
 
 Responsibilities of Structural Messaging:
 
-payload transmission
-
-structural context propagation
-
-execution auditability
-
-snapshot reproducibility
-
-validator-aware communication
+    -- payload transmission
+    -- structural context propagation
+    -- execution auditability
+    -- snapshot reproducibility
+    -- validator-aware communication
 
 ##3. Payload-Structure Communication Model
 
 Structural Messaging treats a message as the combination of runtime payload and structural context.
 
 Core Model
-StructuralMessage = Payload + StructuralContext
 
+    StructuralMessage = Payload + StructuralContext
 
-Where:
+Payload examples:
 
-Payload may include:
+    -- IR objects
+    -- alignment results
+    -- candidates
+    -- runtime parameters
+    -- execution outputs
 
-IR objects
+StructuralContext examples:
 
-alignment results
-
-candidates
-
-runtime parameters
-
-execution outputs
-
-StructuralContext may include:
-
-EvidenceChain reference
-
-invariantHash
-
-ExecutionStatus
-
-snapshotId
-
-validator state
-
-convergence evidence
+    -- EvidenceChain reference
+    -- invariantHash
+    -- ExecutionStatus
+    -- snapshotId
+    -- validator state
+    -- convergence evidence
 
 Payload alone does not constitute a Structural Message.
 
-Structural context transforms payload transport into structural intelligence communication.
+###Note — Constrained Communication Origin
+
+Structural Messaging originates from communication scenarios where
+payload cannot be transmitted directly and must be encoded through
+shared structural conventions.
+
+This specification focuses on the communication model itself,
+while the motivating examples and narrative explanation are provided
+in ITEM #266.
 
 ##4. Structural Messaging Objects
 
@@ -99,21 +98,19 @@ Minimal transferable structural evidence unit.
 
 Conceptual fields:
 
-messageId
-timestamp
-producer
-payload
-evidenceHash
-invariantHash
+    -- messageId
+    -- timestamp
+    -- producer
+    -- payload
+    -- evidenceHash
+    -- invariantHash
 
 
 Purpose:
 
-transmit structural evidence
-
-bind payload to invariant context
-
-provide validator input
+    -- transmit structural evidence
+    -- bind payload to invariant context
+    -- provide validator input
 
 ###4.2 ExecutionReceipt
 
@@ -121,22 +118,20 @@ Verifiable record of structural execution.
 
 Conceptual fields:
 
-status
-evidenceChainHead
-snapshotId
-mode
-cost
-reason
-timestamp
+    -- status
+    -- evidenceChainHead
+    -- snapshotId
+    -- mode
+    -- cost
+    -- reason
+    -- timestamp
 
 
 Purpose:
 
-record execution outcome
-
-provide audit trail
-
-connect runtime events to structural state
+    -- record execution outcome
+    -- provide audit trail
+    -- connect runtime events to structural state
 
 ###4.3 SnapshotMessage
 
@@ -144,41 +139,37 @@ Frozen structural knowledge state.
 
 Conceptual fields:
 
-baselineId
-eventHashes
-mode
-validatorState
-convergenceState
-timestamp
+    -- baselineId
+    -- eventHashes
+    -- mode
+    -- validatorState
+    -- convergenceState
+    -- timestamp
 
 
 Purpose:
 
-freeze runtime structural state
-
-enable reproducibility
-
-support audit and recovery
+    -- freeze runtime structural state
+    -- enable reproducibility
+    -- support audit and recovery
 
 ##5. Messaging State Model
 
 Structural Messaging propagates runtime state explicitly.
 
 ExecutionStatus
-OK
-SAFE_MODE
-STOPPED
-COOLDOWN
-QUARANTINE
+    OK
+    SAFE_MODE
+    STOPPED
+    COOLDOWN
+    QUARANTINE
 
 
 Status must be included in:
 
-ExecutionReceipt
-
-SnapshotMessage
-
-validator reports
+    -- ExecutionReceipt
+    -- SnapshotMessage
+    -- validator reports
 
 This ensures validator-independent observability of runtime behavior.
 
@@ -192,13 +183,10 @@ Its propagation capability depends on the medium that supports structural synchr
 
 Structural Messaging operates over classical computing media:
 
-memory
-
-storage
-
-network protocols
-
-distributed runtime systems
+    -- memory
+    -- storage
+    -- network protocols
+    -- distributed runtime systems
 
 These media carry payload together with structural context.
 
@@ -208,13 +196,10 @@ Structural Messaging is fundamentally concerned with synchronization of structur
 
 This includes:
 
-evidence consistency
-
-invariant preservation
-
-snapshot reproducibility
-
-validator agreement
+    -- evidence consistency
+    -- invariant preservation
+    -- snapshot reproducibility
+    -- validator agreement
 
 Structural Messaging therefore models communication as structural state synchronization rather than data transport alone.
 
@@ -251,23 +236,18 @@ Structural Messaging serves as the communication abstraction layer of DBM-SI run
 
 Conceptually:
 
-DBM-SI Runtime = execution engine
-Structural Messaging = payload-structure communication model
+    DBM-SI Runtime = execution engine
+    Structural Messaging = payload-structure communication model
 
 
 Runtime components interacting with Structural Messaging include:
 
-EvidenceChain
-
-EvidenceValidator
-
-ExecutionStatus
-
-Snapshot system
-
-ConvergenceChecker
-
-Orchestrator
+    -- EvidenceChain
+    -- EvidenceValidator
+    -- ExecutionStatus
+    -- Snapshot system
+    -- ConvergenceChecker
+    -- Orchestrator
 
 Structural Messaging defines the communication semantics across these components.
 
@@ -277,64 +257,23 @@ Structural Messaging enables:
 
 Execution Auditability:
 
-receipts linked to evidence chains
-
-validator-visible status propagation
-
-invariant verification
+    -- receipts linked to evidence chains
+    -- validator-visible status propagation
+    -- invariant verification
 
 Snapshot Reproducibility:
 
-frozen runtime state
-
-deterministic evidence references
-
-snapshot history preservation
+    -- frozen runtime state
+    -- deterministic evidence references
+    -- snapshot history preservation
 
 These properties are foundational requirements of Structural Intelligence runtime systems.
 
-##9. Medium-Independent Structural Communication Principle
+##9. Version Note
 
-Structural Messaging defines a communication abstraction that remains stable across:
+v0.1 — Initial specification
+v0.1.1 — Alignment update with ITEM #266 architecture narrative (no protocol changes)
 
-execution environments
-
-storage systems
-
-distributed runtimes
-
-future computation substrates
-
-The abstraction operates at the level of structural intelligence rather than implementation technology.
-
-Appendix A — Conceptual JSON Mapping (Informative)
-
-Example EvidenceMessage:
-
-{
-  "messageId": "msg-001",
-  "payload": "...",
-  "evidenceHash": "...",
-  "invariantHash": "...",
-  "producer": "runtime-A"
-}
-
-
-Example ExecutionReceipt:
-
-{
-  "status": "OK",
-  "snapshotId": "snap-10",
-  "evidenceChainHead": "hash123"
-}
-
-
-Example SnapshotMessage:
-
-{
-  "baselineId": "baseline-3",
-  "mode": "SAFE_MODE",
-  "eventHashes": ["h1", "h2"]
-}
+End of StructuralMessaging-Spec v0.1.1
 
 ### End of StructuralMessaging-Spec v0.1
