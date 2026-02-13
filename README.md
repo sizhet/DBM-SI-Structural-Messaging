@@ -1,93 +1,205 @@
-# DBM-SI Structural Messaging: Payload-Structure Communication Model
+# DBM-SI Structural Messaging
+## Payload-Structure Communication Model for Structural Intelligence Runtime
 
-**Version:** v0.1  
-**Scope:** Conceptual Specification + Example Message Package  
-**Keywords:** Structural Intelligence, Evidence Chain, Auditability, Reproducibility, Runtime Messaging
-
----
-
-## Canonical Definition (v1.0)
-
-Structural Messaging in DBM-SI defines the communication model through which runtime payload and structural evidence are jointly transmitted, validated, and frozen into reproducible system states. Unlike conventional messaging systems that transport data alone, Structural Messaging carries payload together with structural context — including evidence chains, invariant hashes, execution status, and snapshot references — ensuring that structural intelligence execution remains auditable, reproducible, and verifiable across runtime boundaries. This model serves as the bridge between execution payload flow and structural knowledge formation in Structural Intelligence systems.
+Digital Brain Model — Structural Intelligence (DBM-SI)
 
 ---
 
-## What This DOI Package Contains
+## Project Overview
 
-- **`StructuralMessaging-Spec.md`** — the conceptual specification (v0.1)
-- **`diagrams/messaging-stack.mmd`** — the Messaging Stack diagram (Mermaid)
-- **`examples/*.json`** — minimal example messages:
-  - EvidenceMessage
-  - ExecutionReceipt
-  - SnapshotMessage
-  - ConvergenceReport
+Structural Messaging defines how runtime payload and structural evidence are jointly transmitted, validated, and frozen into reproducible system states in Structural Intelligence systems.
 
-This package is intended to be:
-- a stable reference for the DBM-SI runtime communication abstraction
-- a reproducibility- and audit-oriented message model
-- a medium-independent communication concept for Structural Intelligence systems
+Unlike conventional messaging systems that transport payload alone, Structural Messaging carries payload together with structural context — including evidence chains, invariant hashes, execution status, and snapshot references.
+
+This repository contains:
+
+- Structural Messaging specification
+- Architecture documentation (ITEM #266)
+- Example structural messages
+- Minimal Java runtime demonstration
 
 ---
 
-## Core Model
+## Canonical Definition
 
-Structural Messaging treats a message as:
+Structural Messaging is the payload-structure communication model of DBM-SI runtime systems, enabling payload transmission together with structural evidence, execution auditability, and snapshot-level reproducibility.
 
-> **StructuralMessage = Payload + StructuralContext**
-
-Where **StructuralContext** includes evidence-chain identifiers, invariant hashes, validator outputs, execution status, snapshot references, and convergence signals.
-
----
-
-## Messaging Objects
-
-### EvidenceMessage
-Minimal transferable unit carrying:
-- payload
-- evidenceHash / invariantHash
-- producer metadata
-
-### ExecutionReceipt
-Verifiable record capturing:
-- status (OK/SAFE_MODE/STOPPED/COOLDOWN/QUARANTINE)
-- evidenceChainHead and snapshot linkage
-- cost / mode / reason for audit
-
-### SnapshotMessage
-Frozen structural knowledge state capturing:
-- baselineId, eventHashes
-- validatorState and convergenceState
-- reproducibility-critical references
+Core model:
+    
+    StructuralMessage = Payload + StructuralContext
 
 ---
 
-## State Model
+## Repository Structure
 
-ExecutionStatus values:
-- OK
-- SAFE_MODE
-- STOPPED
-- COOLDOWN
-- QUARANTINE
-
-Status MUST be propagated via receipts and snapshots to ensure validator-independent observability.
-
----
-
-## Propagation Horizon (Medium Independence)
-
-Structural Messaging is not bound to a transport medium; it is bound to **structural state synchronization**.
-
-Classical media (memory/storage/network) are supported by default. A quantum entanglement analogy is included as a theoretical illustration of state correlation beyond classical payload transfer; it is not an implementation claim.
+    DBM-COT/
+    items/
+    ITEM-266-Structural-Messaging-Architecture.md
+    ITEM-266-FIGURES.pdf
+    
+    StructuralMessaging-Spec.md
+    diagrams/
+    examples/
+    src/
+    pom.xml
 
 ---
 
-## How To Cite
+## Documentation Layers
 
-Use this DOI as the reference for the DBM-SI structural messaging model and its example message formats.
+Structural Messaging documentation consists of three layers:
+
+### Architecture Layer
+ITEM #266  
+Explains:
+
+- encoding principles
+- constrained communication motivation
+- runtime messaging flow
+- bridge signaling example
+- trigger-based observation principle
+- quantum-entanglement analogy
+
+---
+
+### Protocol Layer
+StructuralMessaging-Spec.md
+
+Defines:
+
+- EvidenceMessage
+- ExecutionReceipt
+- SnapshotMessage
+- state model
+- propagation model
+- structural messaging abstraction
+
+---
+
+### Instance Layer
+    
+    examples/
+
+Contains example structural messages:
+
+- evidence-message.json
+- receipt.json
+- snapshot.json
+- convergence-report.json
+
+---
+
+## Constrained Communication Motivation
+
+Structural Messaging originates from communication scenarios where payload cannot be transmitted directly and must instead be encoded through shared structural conventions.
+
+Examples discussed in ITEM #266:
+
+- Bridge signaling
+- Trigger-based observation
+- Quantum-entanglement analogy (communication limit illustration)
+
+These examples explain why Structural Messaging emerges as a minimal structural communication mechanism under constrained conditions.
+
+---
+
+## Runtime Messaging Flow
+
+    Algorithm
+    → EvidenceChain
+    → EvidenceValidator
+    → EvidenceMessage
+    → ExecutionReceipt
+    → SnapshotMessage
+    → ConvergenceChecker
+    
+Structural Messaging connects runtime execution with structural knowledge formation.
+
+## Java Demo
+
+The repository includes a minimal runtime demonstration:
+
+    src/main/java/com/dbm/structure_messaging/demo/
+    
+Example components:
+
+- Item266Demo
+- Item266Orchestrator
+- structural messaging model classes
+
+Unit tests demonstrate:
+
+- convergence behavior
+- permutation decoding
+- training table construction
+
+---
+
+## Structural Messaging Principle
+
+Structural Messaging is not bound to a transport medium;  
+it is bound to structural state synchronization.
+
+---
+
+## Acknowledgement
+
+This project was developed through iterative collaboration between the DBM author and an AI research/coding assistant (ChatGPT), which contributed to:
+
+- structural messaging object model clarification
+- runtime messaging flow formalization
+- specification drafting (StructuralMessaging-Spec v0.1)
+- example message design
+- ITEM #266 architecture documentation support
+
+The DBM author curated, validated, and integrated these materials into the DBM-SI Structural Messaging repository.
+
+---
+
+## Relationship to DBM
+
+This repository is part of the Digital Brain Model ecosystem:
+
+- DBM-COT — conceptual architecture and theory
+- DBM-SI — Structural Intelligence runtime
+- Structural Messaging — runtime communication layer
+
+---
+
+## Status
+
+Structural Messaging Spec: v0.1  
+ITEM #266 Architecture: stable  
+Runtime demo: minimal reference implementation
+
+---
+
+## Repository
+
+https://github.com/sizhet/DBM-SI-Structural-Messaging
 
 ---
 
 ## License
 
-Choose a license consistent with the parent DBM-SI/DBM-COT release policy (e.g., CC BY 4.0 for specs/docs, or Apache-2.0 for reference code if later added).
+Apache License 2.0  
+http://www.apache.org/licenses/LICENSE-2.0
+
+---
+
+## DOI
+
+This release is archived and citable via Zenodo:
+
+**DOI:** *[10.5281/zenodo.18510683]*           (tbd)
+
+https://doi.org/10.5281/zenodo.18510683        (tbd)
+
+---
+
+## Correspondence
+
+For academic correspondence, collaboration, or citation-related inquiries:
+
+Sizhe Tan  
+Email: contact@digitalbrainmodel-ai.com
