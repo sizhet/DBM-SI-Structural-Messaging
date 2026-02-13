@@ -1,0 +1,16 @@
+README.md
+StructuralMessaging-Spec.md
+DBM-COT/items/ITEM-266-Structural-Messaging-Architecture.md
+DBM-COT/items/ITEM-266-Structural-Messaging-Architecture-CN.md
+DBM-COT/items/ITEM-266-FIGURES.pdf
+diagrams/messaging-stack.mmd
+examples/README.md
+examples/evidence-message.json
+examples/receipt.json
+examples/snapshot.json
+examples/convergence-report.json
+pom.xml
+src/main/java/
+src/test/java/
+StructuralMessaging-Spec-v0.1.1-Cover.pdf
+StructuralMessaging-Spec-v0.1.1-Octagon-Cover-DBMSI-Colors.pdf

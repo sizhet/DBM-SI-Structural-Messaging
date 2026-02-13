@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "DBM-SI Structural Messaging: Payload-Structure Communication Model"
+type: software
+version: v0.1.1
+date-released: 2026-02-14
+authors:
+  - family-names: Tan
+    given-names: Sizhe
+contributors:
+  - name: "ChatGPT"
+    affiliation: "OpenAI"
+    type: other
+repository-code: "https://github.com/sizhet/DBM-SI-Structural-Messaging"
+keywords:
+  - Structural Intelligence
+  - DBM-SI
+  - Structural Messaging
+  - Evidence Chain
+  - Auditability
+  - Reproducibility
+  - Runtime Messaging
+  - Snapshot
+  - Convergence
+  - Minimal Evolution Threshold
+license: "CC-BY-4.0"
+abstract: >
+  Structural Messaging defines how runtime payload and structural evidence are jointly transmitted,
+  validated, and frozen into reproducible system states in Structural Intelligence runtime systems.
+  The release includes a conceptual specification (v0.1.1), an architecture explanation document
+  (DBM-COT ITEM #266, bilingual), example message instances (JSON), and a minimal Java demo with tests.
+notes: >
+  Quantum entanglement is used only as a theoretical analogy to illustrate the extreme limit of constrained communication.
+  No quantum implementation claim is made.
+preferred-citation:
+  type: report
+  title: "DBM-SI Structural Messaging: Payload-Structure Communication Model"
+  authors:
+    - family-names: Tan
+      given-names: Sizhe
+  version: v0.1.1
+  date-released: 2026-02-14
+  url: "https://github.com/sizhet/DBM-SI-Structural-Messaging"
