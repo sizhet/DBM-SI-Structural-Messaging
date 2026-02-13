@@ -1,0 +1,23 @@
+{
+  "type": "ExecutionReceipt",
+  "version": "v0.1",
+  "receiptId": "rcpt-0001",
+  "timestamp": "2026-02-12T12:00:01-08:00",
+  "status": "OK",
+  "mode": "NORMAL",
+  "reason": "Completed within budget; invariants validated.",
+  "cost": {
+    "wallTimeMs": 18,
+    "cpuMs": 12,
+    "estimatedUsd": 0.0000
+  },
+  "links": {
+    "evidenceChainHead": "ehash-9f31b0",
+    "snapshotId": "snap-0001"
+  },
+  "structuralSummary": {
+    "targetId": "T-123",
+    "rhsLabels": ["L.alpha", "L.beta"],
+    "topEvidenceKeys": ["k.intent", "k.delta", "k.router", "k.align"]
+  }
+}

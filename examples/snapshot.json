@@ -1,0 +1,30 @@
+{
+  "type": "SnapshotMessage",
+  "version": "v0.1",
+  "snapshotId": "snap-0001",
+  "timestamp": "2026-02-12T12:00:02-08:00",
+  "baselineId": "baseline-003",
+  "mode": "NORMAL",
+  "status": "OK",
+  "eventHashes": ["ehash-9f31b0", "ehash-9f31b0#2"],
+  "validatorState": {
+    "status": "OK",
+    "mandatoryKeysPresent": true,
+    "hashChainVerified": true,
+    "invariantVerified": true
+  },
+  "convergenceState": {
+    "checker": "ConvergenceChecker",
+    "isConverged": false,
+    "criteria": {
+      "compareTargetId": true,
+      "compareRhsLabelsSet": true,
+      "compareTopEvidenceKeys": true
+    },
+    "fingerprint": {
+      "targetId": "T-123",
+      "rhsLabelsSetHash": "seth-28a9",
+      "topEvidenceKeysHash": "keyh-51c0"
+    }
+  }
+}

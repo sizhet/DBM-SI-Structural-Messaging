@@ -1,0 +1,32 @@
+{
+  "type": "ConvergenceReport",
+  "version": "v0.1",
+  "reportId": "conv-0001",
+  "timestamp": "2026-02-12T12:00:03-08:00",
+  "status": "OK",
+  "summary": {
+    "isConverged": false,
+    "stopRuleTriggered": "NONE",
+    "notes": "Not converged: rhs label set changed in last window."
+  },
+  "window": {
+    "baselineId": "baseline-003",
+    "recentSnapshots": ["snap-0001", "snap-0000"],
+    "maxWindowSize": 2
+  },
+  "structuralInvariants": {
+    "targetIdStable": true,
+    "rhsLabelsSetStable": false,
+    "topEvidenceKeysStable": true
+  },
+  "diff": {
+    "rhsLabelsSet": {
+      "prev": ["L.alpha"],
+      "curr": ["L.alpha", "L.beta"]
+    }
+  },
+  "links": {
+    "snapshotId": "snap-0001",
+    "evidenceChainHead": "ehash-9f31b0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "EvidenceMessage",
+  "version": "v0.1",
+  "messageId": "msg-0001",
+  "timestamp": "2026-02-12T12:00:00-08:00",
+  "producer": {
+    "runtimeId": "dbm-si-runtime-A",
+    "component": "OrchestratorV2"
+  },
+  "payload": {
+    "payloadType": "AlignmentResult",
+    "targetId": "T-123",
+    "candidates": [
+      { "candidateId": "C-7", "score": 0.86 },
+      { "candidateId": "C-3", "score": 0.81 }
+    ],
+    "notes": "Toy payload for spec examples."
+  },
+  "structuralContext": {
+    "evidenceChainHead": "ehash-9f31b0",
+    "topEvidenceKeys": ["k.intent", "k.delta", "k.router", "k.align"],
+    "invariantHash": "inv-4b8f2a",
+    "evidenceHash": "ev-2c771d"
+  }
+}
