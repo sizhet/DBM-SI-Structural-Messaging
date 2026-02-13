@@ -5,6 +5,12 @@ Digital Brain Model — Structural Intelligence (DBM-SI)
 
 ---
 
+<p align="center">
+  <img src="DBM-SI structural messaging banner.png" width="720">
+</p>
+
+---
+
 ## Project Overview
 
 Structural Messaging defines how runtime payload and structural evidence are jointly transmitted, validated, and frozen into reproducible system states in Structural Intelligence systems.
