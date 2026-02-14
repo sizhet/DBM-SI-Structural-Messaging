@@ -3,15 +3,18 @@ message: "If you use this work, please cite it as below."
 title: "DBM-SI Structural Messaging: Payload-Structure Communication Model"
 type: software
 version: v0.1.1
-date-released: 2026-02-14
+date-released: 2026-02-13  # TODO: replace with your actual GitHub Release date (YYYY-MM-DD)
 authors:
   - family-names: Tan
     given-names: Sizhe
+
 contributors:
   - name: "ChatGPT"
     affiliation: "OpenAI"
     type: other
+
 repository-code: "https://github.com/sizhet/DBM-SI-Structural-Messaging"
+
 keywords:
   - Structural Intelligence
   - DBM-SI
@@ -23,22 +26,26 @@ keywords:
   - Snapshot
   - Convergence
   - Minimal Evolution Threshold
+
 license: "Apache-2.0"
+
 abstract: >
   Structural Messaging defines how runtime payload and structural evidence are jointly transmitted,
   validated, and frozen into reproducible system states in Structural Intelligence runtime systems.
   The release includes a conceptual specification (v0.1.1), an architecture explanation document
   (DBM-COT ITEM #266, bilingual), example message instances (JSON), and a minimal Java demo with tests.
+
 notes: >
   Quantum entanglement is used only as a theoretical analogy to illustrate the extreme limit of constrained communication.
   No quantum implementation claim is made.
+
 preferred-citation:
-  type: report
+  type: software
   title: "DBM-SI Structural Messaging: Payload-Structure Communication Model"
   authors:
     - family-names: Tan
       given-names: Sizhe
   version: v0.1.1
-  date-released: 2026-02-14
+  date-released: 2026-02-13  # TODO: replace with your actual GitHub Release date (YYYY-MM-DD)
   url: "https://github.com/sizhet/DBM-SI-Structural-Messaging"
-  doi: "10.5281/zenodo.18510683"   (tbd)
+  doi: ""  # TODO: fill after Zenodo DOI is minted
