@@ -1,80 +1,244 @@
-## A Kid Game to Illustrate How Structural Messaging Work
+# A Kid Game to Illustrate How Structural Messaging Works
 
-###1. Players
-    -- Message Sender as Encoder
-    -- Message Receiver as Decoder
-    -- Small Kid to generate random two bits when Mmssage sender asks
-    -- Witnesses
+This game demonstrates the core idea behind Structural Messaging:
+
+> Payload fragments can be transmitted using shared structural conventions,
+> even when direct communication bandwidth is extremely limited.
+
+This example intentionally avoids computers and uses only:
+- random bits
+- time ticks
+- shared encoding tables
+
+---
+
+# 1. Players
+
+- Message Sender (Encoder)
+- Message Receiver (Decoder)
+- Small Kid (random 2-bit generator)
+- Witnesses (provide message to send)
+
+---
+
+# 2. Shared Encoding Tables
+
+Both sender and receiver must know these tables beforehand.
+
+This is the **shared structural encoding** required by Structural Messaging.
+
+---
+
+## Table I — Word Encoding Table
+
+Each word has four possible encodings based on passive header bits.
+
+Example:
+
+    Hello → 00 → skipLength = 2
+    01 → skipLength = 8
+    10 → skipLength = 7
+    11 → skipLength = 31
     
-###2. Message Sender and Receiver's Encoding/Decoding Tables
+    Alice → 00 → skipLength = 21
+    01 → skipLength = 13
+    10 → skipLength = 25
+    11 → skipLength = 7
+    
 
-####Table I:   
-        Per-word per-passiveHeadBits with 4 encodings 
+skipLength means:
 
-        Hello ->  00 - skipLength=2
-                  01 - skipLength=8
-                  10 - skipLength=7
-                  11 - skipLength=31
-                    
-        Alice ->  00 - skipLength=21
-                  01 - skipLength=13
-                  10 - skipLength=25
-                  11 - skipLength=7
-            ...            
+> how many time clicks must pass before the word is emitted.
 
-####Table II:  
-                
-            Per-passive-head words list
-                00 - Hello, Alice, Ski, Home,...
-                01 - Hello, Alice, Dog,...
-                10 - Hello, Alice, Frence, ...
-                11 - Hello, Alice, Anybody,...
-                
-###3. Time Clicks in Sequence of Periods k=0, 1, 2, ...
-      Everybody sees the current period number.
+---
+
+## Table II — Passive-Header Word List
+
+    00 → Hello, Alice, Ski, Home, ...
+    01 → Hello, Alice, Dog, ...
+    10 → Hello, Alice, France, ...
+    11 → Hello, Alice, Anybody, ...   
+    
+ 
+This table defines **possible candidate words** for each header.
+
+---
+
+# 3. Global Time Clicks
+
+Time advances in discrete ticks:
+
+k = 0, 1, 2, 3, ...
+
+Everyone observes the same time.
+
+---
+
+# 4. Witness Message
+
+Witnesses choose a message for the sender to transmit.
+
+Example:
+
+    "Hello Alice"
+    
+The sender must transmit this message using Structural Messaging rules.
+
+---
+
+# 5. Sender Procedure (Encoder)
+
+## 5.1 Header Generation
+
+At time period k:
+
+The sender asks the Small Kid to generate random 2 bits.
+
+Example:
+    
+    01
+    
+The header bits are shown publicly.
+
+The sender does not control these bits.
+
+This models **passive header triggering**.
+
+---
+
+## 5.2 Encoding the Word
+
+Sender must transmit:
+
+    Hello
+
+Using header bits:
       
-###4. Witnesses give a random message for Message Sender to send.
-      Say "Hello, Alice".
+    01
 
-----
+From Table I:
 
-###5. For Message Sender:
-
-####5a) At time period k, Message Sender asks Small Kid to generate 2-bits code,
-      
-      The 2 bits are random: one out of 00 01 10 11.
-      Say 01
-       
-      Show the 2-bits code to everyone.
-      
-####5b) Message Sender needs to send word "Hello" with passive code 01 he has to use.
-      He/She checks Table I and get a skipLength=8.
-      So he/she waite until Time Click adding 8 clicks.
-
-####5c) Then, Message Sender ask Small Kid to generate 2-bits code to generate
-      another header 2 bits and repeat step 4 and 5 to send next word "Alice".
-      
-      Repeat the until Message Sender has no more word to send. Then send "Stop".
+    skipLength = 8 
    
-----
-   
-###6. For Message Receiver:    
-      
-####6a) At each head 2 bits code anancement, he/she check Table II for next possible words to receive (1-to-n).
+The sender waits exactly 8 time clicks.
 
-####6b) Next he/she check Table I for the time click number for each of possible words to receive.
-        That is in a permutation tree of words style. Each new comming word will creates a ne child branch.
+Then the sender emits the word.
 
-####6c) Then he/she just waits until a time click number for each of possible words to receive,
-        to emit the word to validate.
-        
-####6d) If a sentece from permutation tree root to the currently receive word, has no meaning, drop this tree branch.
-          
-####6e) Until "Stop" is received. The collect all sentence from tree root to tree leaves. The message from the sender
-        is one of them.
+---
 
-###7. To eliminate messages other than the sent message, just repeat 6 more than one time.
-      Because the header 2 bits's randomness, only the real message from the sender can survive each of attempt.
-      
-###8, Done.   
+## 5.3 Repeat
 
+Repeat:
+
+- request random header bits
+- encode next word
+- wait skipLength
+- emit word
+
+After all words are sent:
+
+    Stop
+
+---
+
+# 6. Receiver Procedure (Decoder)
+
+The receiver never observes continuously.
+
+The receiver reacts only to **structural triggers**.
+
+This is the **trigger-based observation principle**.
+
+---
+
+## 6.1 Header Trigger
+
+When header bits appear, consult Table II:
+
+Example:
+
+    01 → Hello, Alice, Dog, ...
+    
+---
+
+## 6.2 Permutation Tree Expansion
+
+For each candidate word:
+
+- compute skipLength
+- create a branch
+- predict emission time
+
+---
+
+## 6.3 Triggered Waiting
+
+Receiver waits only for predicted emission times.
+
+This avoids interpreting deterministic noise.
+
+---
+
+## 6.4 Validation
+
+When emission occurs:
+
+- validate word
+- extend branch
+- drop invalid branches
+
+---
+
+## 6.5 Stop Signal
+
+When "Stop" arrives:
+
+All surviving branches form candidate sentences.
+
+One is correct.
+
+---
+
+# 7. Convergence by Repetition
+
+Repeat transmission multiple times.
+
+Because headers are random:
+
+incorrect branches disappear across runs.
+
+Only the true message survives.
+
+This demonstrates **vote-based convergence**.
+
+---
+
+# 8. What This Game Demonstrates
+
+- passive header triggering
+- fragmented payload transmission
+- shared encoding tables
+- permutation-tree decoding
+- trigger-based observation
+- convergence through repetition
+
+These are the core ideas behind Structural Messaging.
+
+---
+
+# 9. Relation to Structural Messaging
+
+    Random header → Passive head bits
+    skipLength → structural delay encoding
+    Permutation tree → decoder search tree
+    Repeated runs → convergence checking
+    Shared tables → structural encoding agreement
+    
+---
+
+# 10. Key Insight
+
+Even under extreme communication constraints,
+payload can be transmitted through structure.
+
+This is the intuition behind Structural Messaging.
