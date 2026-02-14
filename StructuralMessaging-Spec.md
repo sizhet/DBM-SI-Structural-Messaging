@@ -1,7 +1,7 @@
 # DBM-SI Structural Messaging
 ## Payload-Structure Communication Model for Structural Intelligence
 
-####*Under constraint, structure becomes the carrier of meaning.*
+*Under constraint, structure becomes the carrier of meaning.*
 
 Version: v0.1.1  
 Project: DBM-SI Structural Messaging  
