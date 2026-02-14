@@ -1,6 +1,8 @@
 # DBM-SI Structural Messaging
 ## Payload-Structure Communication Model for Structural Intelligence Runtime
 
+####*Under constraint, structure becomes the carrier of meaning.*
+
 Digital Brain Model — Structural Intelligence (DBM-SI)
 
 ---
