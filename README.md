@@ -197,9 +197,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 This release is archived and citable via Zenodo:
 
-**DOI:** *[10.5281/zenodo.18510683]*           (tbd)
-
-https://doi.org/10.5281/zenodo.18510683        (tbd)
+DOI: pending
 
 ---
 
