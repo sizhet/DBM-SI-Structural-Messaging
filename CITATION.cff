@@ -23,7 +23,7 @@ keywords:
   - Snapshot
   - Convergence
   - Minimal Evolution Threshold
-license: "CC-BY-4.0"
+license: "Apache-2.0"
 abstract: >
   Structural Messaging defines how runtime payload and structural evidence are jointly transmitted,
   validated, and frozen into reproducible system states in Structural Intelligence runtime systems.
@@ -41,3 +41,4 @@ preferred-citation:
   version: v0.1.1
   date-released: 2026-02-14
   url: "https://github.com/sizhet/DBM-SI-Structural-Messaging"
+  doi: "10.5281/zenodo.18510683"   (tbd)
