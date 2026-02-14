@@ -242,3 +242,30 @@ Even under extreme communication constraints,
 payload can be transmitted through structure.
 
 This is the intuition behind Structural Messaging.
+
+---
+
+# Structural Messaging Kid-Game Flow
+
+```mermaid
+flowchart TD
+
+A[Random Header Bits]
+B[Lookup Table II<br>Candidate Words]
+C[Lookup Table I<br>skipLength]
+D[Wait skipLength]
+E[Emit Word]
+F[Permutation Tree Update]
+G[Branch Validation]
+H[Repeat Transmission]
+I[Vote Convergence]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I
+
