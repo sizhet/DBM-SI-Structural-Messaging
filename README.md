@@ -190,6 +190,20 @@ This forms the Structural Messaging foundation within DBM Structural Intelligenc
 
 ---
 
+## ⚠️ Note on GitHub PDF Rendering
+
+Some PDF files in this repository may **not render correctly in GitHub’s online viewer**
+due to platform limitations (fonts, annotations, size).
+
+**Recommended reading paths:**
+
+- For quick orientation → read the **English LITE Markdown files**
+- For full fidelity → **download the repository** and read PDFs locally
+
+This is a GitHub platform constraint, not a document integrity issue.
+
+---
+
 ## ITEM #266 — MET-Level Messaging
 
 **Role**
