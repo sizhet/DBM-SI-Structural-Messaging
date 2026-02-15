@@ -177,17 +177,16 @@ The Messaging branch of DBM-SI studies communication mechanisms in which
 information transmission emerges from structural interpretation over shared
 observable processes, rather than from direct bit transport.
 
-This branch currently consists of two core ITEMS:
+This branch currently consists of four core ITEMS:
 
 ```
-ITEM #266  → feasibility / emergence layer.
-ITEM #267  → kernel / formalization layer.
+ITEM #266  → feasibility / emergence layer: shows messaging can emerge.
+ITEM #267  → kernel / formalization layer: explains why and how it works.
 ITEM #268  → Collapse Boundary:** when pointer messaging collapses and why escalation becomes necessary.
 ITEM #269  → Generalized Chord Systems:** the universal paradigm behind tacit coordination, culture, idioms, and human–AI “默契”.
-
 ```
 
-and the StructuralMessaging specification.
+This forms the Structural Messaging foundation within DBM Structural Intelligence.
 
 ---
 
@@ -318,20 +317,6 @@ In all three cases:
     Meaning = Decode(pointer, shared CCC)
 
 The signal is small, but the reconstructed structure is large.
-
----
-
-## Messaging Branch Summary
-
-The DBM-SI Messaging branch establishes a new communication model:
-
-```
-ITEM #266 → shows messaging can emerge
-ITEM #267 → explains why and how it works
-Spec      → defines how to implement it
-```
-
-This forms the Structural Messaging foundation within DBM Structural Intelligence.
 
 ---
 
