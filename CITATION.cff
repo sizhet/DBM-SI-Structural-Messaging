@@ -3,7 +3,7 @@ message: "If you use this work, please cite it as below."
 title: "DBM-SI Structural Messaging: Payload-Structure Communication Model"
 type: software
 version: v0.1.1
-date-released: 2026-02-13  # TODO: replace with your actual GitHub Release date (YYYY-MM-DD)
+date-released: 2026-02-16
 authors:
   - family-names: Tan
     given-names: Sizhe
@@ -46,6 +46,6 @@ preferred-citation:
     - family-names: Tan
       given-names: Sizhe
   version: v0.1.1
-  date-released: 2026-02-13  # TODO: replace with your actual GitHub Release date (YYYY-MM-DD)
+  date-released: 2026-02-16
   url: "https://github.com/sizhet/DBM-SI-Structural-Messaging"
-  doi: ""  # TODO: fill after Zenodo DOI is minted
+  doi: "10.5281/zenodo.18653926"

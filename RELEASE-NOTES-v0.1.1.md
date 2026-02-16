@@ -1,7 +1,5 @@
-# Release Notes — v0.1.1 (YYYY-MM-DD)
+# Release Notes — v0.1.1 (2026-02-16)
 DBM-SI Structural Messaging: Payload-Structure Communication Model
-
-> TODO: Replace the date with your actual GitHub Release date.
 
 ---
 

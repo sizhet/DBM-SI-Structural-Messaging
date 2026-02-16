@@ -155,7 +155,7 @@ Runtime demo: reference implementation
 
 ## DOI
 
-DOI: pending
+DOI: 10.5281/zenodo.18653926
 
 ---
 
