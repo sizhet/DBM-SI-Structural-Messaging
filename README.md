@@ -135,6 +135,143 @@ Includes:
 
 ---
 
+## Collapse Benchmark
+
+###Structural Messaging Collapse Boundary
+
+Structural Messaging proposes a measurable boundary condition for communication systems:
+
+#####Communication collapses when reconstruction becomes cheaper than transmission.
+
+When sender and receiver share sufficient structural knowledge, messages no longer need to transmit full state payloads. Instead, communication reduces to **pointer-indexed coordination**, where small structural references allow the receiver to reconstruct the full state.
+
+This transforms messaging from a transport problem into a reconstruction problem.
+
+###Collapse Definition
+
+Let:
+
+    P = payload entropy
+    K = shared structural knowledge
+    I(K) = usable structural information capacity
+    B = transmitted bytes
+
+
+Collapse occurs when:
+
+    I(K) ≥ H(P)
+
+At this boundary:
+
+    Message ≈ PointerIndex + MinimalPayload
+
+###Shared Structure Levels
+
+The collapse benchmark evaluates communication across increasing levels of shared structure.
+
+|Level	|Shared Structure	|Message Form |
+|---|---|---|
+|S0	|none	|full payload |
+|S1	|schema	|constrained payload |
+|S2	|snapshot + schema	|snapshotId + diff |
+|S3	|snapshot history + structural index	|pointerIndex + eventId |
+
+Expected behavior:
+
+    B(S0) > B(S1) > B(S2) > B(S3)
+
+and near collapse:
+
+    B(S3) ≈ constant
+
+###Minimal Benchmark Scenario
+
+A recommended toy benchmark uses workflow state reconstruction.
+
+Shared between sender and receiver:
+
+* workflow schema
+    
+* baseline snapshot
+    
+* validation rules
+    
+* structural index
+
+Example measurement:
+
+    Full workflow state JSON: 150 KB
+    Pointer message: ~48 bytes
+    Compression ratio: >3000×
+
+
+Receiver reconstructs state via:
+
+    snapshotId + eventIndex + diffPointer
+
+
+and validates using:
+
+* invariant hash
+    
+* evidence chain
+    
+* snapshot equality
+
+###Collapse Curve
+
+As shared structure increases, transmitted payload decreases:
+
+    Transmission Size
+    │
+    │\
+    │ \
+    │  \
+    │   \
+    │    \____
+    │
+    └──────────────
+       S0 S1 S2 S3
+
+
+This curve is called the Structural Messaging Collapse Curve.
+
+###Engineering Interpretation
+
+The collapse boundary demonstrates that:
+
+* structure can substitute for payload
+    
+* communication can become pointer-indexed coordination
+    
+* state synchronization becomes reproducible
+    
+* structural context becomes the carrier of meaning
+
+Structural Messaging therefore defines a structure-aware messaging protocol, rather than a payload transport mechanism.
+
+###Reproducibility
+
+A minimal Java demo in this repository demonstrates:
+
+* EvidenceMessage
+    
+* ExecutionReceipt
+    
+* SnapshotReference
+    
+* ConvergenceReport
+
+and provides the baseline components required to implement the collapse benchmark.
+
+###Related Study
+
+This benchmark formalizes the boundary described in:
+
+    ITEM #268 — Structural Messaging Collapse into Pointer-Indexed Communication
+
+---
+
 ## Relationship to DBM
 
 Structural Messaging is part of the DBM ecosystem:
