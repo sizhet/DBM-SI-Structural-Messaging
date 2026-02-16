@@ -236,6 +236,15 @@ As shared structure increases, transmitted payload decreases:
 
 This curve is called the Structural Messaging Collapse Curve.
 
+### Collapse Benchmark Result
+
+| Level  | Bytes  | Compression(vs S0) | OK |
+|---|---|---|---|
+| S0 | 154000 | 1.0x | ✓ |
+| S1 | 154000 | 1.0x | ✓ |
+| S2 | 820 | 187.8x | ✓ |
+| S3 | 22 | 7000.0x | ✓ |
+
 ###Engineering Interpretation
 
 The collapse boundary demonstrates that:
