@@ -171,6 +171,8 @@ http://www.apache.org/licenses/LICENSE-2.0
 Sizhe Tan  
 contact@digitalbrainmodel-ai.com
 
+---
+
 ## ⚠️ Note on GitHub PDF Rendering
 
 Some PDF files in this repository may **not render correctly in GitHub’s online viewer**
